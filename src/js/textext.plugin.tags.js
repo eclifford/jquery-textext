@@ -584,28 +584,27 @@
 	 */
 	p.addTags = function(tags)
 	{
-		if(!tags || tags.length == 0)
-			return;
+    if(!tags || tags.length == 0)
+      return;
 
-		var self      = this,
-			core      = self.core(),
-			container = self.containerElement(),
-			i, tag
-			;
+    var self      = this,
+        core      = self.core(),
+        container = self.containerElement(),
+        i, tag
+        ;
 
-		for(i = 0; i < tags.length; i++)
-		{
-			tag = tags[i];
+    for(i = 0; i < tags.length; i++)
+    {
+      tag = tags[i];
 
-			if(tag && self.isTagAllowed(tag))
-				container.append(self.renderTag(tag));
-		}
+      if(tag)
+        container.append(self.renderTag(tag));
+    }
 
-		self.updateFormCache();
-		core.getFormData();
-		core.invalidateBounds();
+    self.updateFormCache();
+    core.getFormData();
+    core.invalidateBounds();
 	};
-
 	/**
 	 * Returns HTML element for the specified tag.
 	 *
@@ -630,7 +629,7 @@
 			if(self.itemManager().compareItems(item.data(CSS_TAG), tag))
 				return item;
 		}
-		
+
 		return null;
 	};
 
